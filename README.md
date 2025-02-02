@@ -1,4 +1,4 @@
-# buzzline-03-case
+# buzzline-03-miller
 
 Streaming data does not have to be simple text.
 Many of us are familiar with streaming video content and audio (e.g. music) files. 
@@ -47,13 +47,13 @@ Windows:
 
 ```shell
 .venv\Scripts\activate
-py -m producers.json_producer_case
+py -m producers.json_producer_miller
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m producers.json_producer_case
+python3 -m producers.json_producer_miller
 ```
 
 What did we name the topic used with JSON data? 
@@ -69,13 +69,13 @@ Use the commands below to activate .venv, and start the consumer.
 Windows:
 ```shell
 .venv\Scripts\activate
-py -m consumers.json_consumer_case
+py -m consumers.json_consumer_miller
 ```
 
 Mac/Linux:
 ```zsh
 source .venv/bin/activate
-python3 -m consumers.json_consumer_case
+python3 -m consumers.json_consumer_miller
 ```
 
 What did we name the topic used with JSON data? 
