@@ -15,6 +15,7 @@ Example Kafka message format:
 # Import packages from Python Standard Library
 import os
 import json
+from datetime import datetime  # work with timestamps
 
 # Use a deque ("deck") - a double-ended queue data structure
 # A deque is a good way to monitor a certain number of "most recent" messages
@@ -106,6 +107,7 @@ def detect_stall(rolling_window_deque: deque) -> bool:
 # Function to process a single message
 # #####################################
 
+timestamps = []
 
 def process_message(message: str, rolling_window: deque, window_size: int) -> None:
     """
@@ -123,16 +125,38 @@ def process_message(message: str, rolling_window: deque, window_size: int) -> No
         # Parse the JSON string into a Python dictionary
         data: dict = json.loads(message)
         temperature = data.get("temperature")
-        timestamp = data.get("timestamp")
+        unedited_timestamp = data.get("timestamp")
         logger.info(f"Processed JSON message: {data}")
 
         # Ensure the required fields are present
-        if temperature is None or timestamp is None:
+        if temperature is None or unedited_timestamp is None:
             logger.error(f"Invalid message format: {message}")
             return
 
         # Append the temperature reading to the rolling window
         rolling_window.append(temperature)
+
+        # Convert timestamp to datetime object for calculating elapsed time
+        timestamp = datetime.strptime(unedited_timestamp, '%H:%M:%S')
+
+        timestamps.append(timestamp)
+
+        # Determine the earliest timestamp from the timestamp list
+        earliest_timestamp = min(timestamps)
+
+        # Calculate the elapsed time from the first timestamp (in minutes)
+        elapsed_time = (timestamp - earliest_timestamp).total_seconds() / 60  # in minutes
+
+        # Calculate the temperature change over the elapsed time (°F per minute)
+        if elapsed_time > 0:
+            initial_temperature = rolling_window[0] if rolling_window else temperature
+            temp_change_per_minute = (temperature - initial_temperature) / elapsed_time
+        else:
+            temp_change_per_minute = 0  # Avoid division by zero if elapsed_time is 0
+
+        # Log elapsed time and average temperature change per minute
+        logger.info(f"Elapsed Time: {elapsed_time:.2f} minutes")
+        logger.info(f"Average Temperature Change: {temp_change_per_minute:.2f}°F per minute")
 
         # Check for a stall
         if detect_stall(rolling_window):

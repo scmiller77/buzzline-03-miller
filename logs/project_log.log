@@ -624,3 +624,209 @@
 2025-02-01 18:18:02.713 | WARNING  | __main__:main:170 - Producer interrupted by user.
 2025-02-01 18:18:02.714 | INFO     | __main__:main:175 - Kafka producer closed.
 2025-02-01 18:18:02.714 | INFO     | __main__:main:177 - END producer.
+2025-02-01 19:03:58.203 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-01 19:03:58.205 | INFO     | __main__:<module>:66 - Project root: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller
+2025-02-01 19:03:58.205 | INFO     | __main__:<module>:70 - Data folder: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data
+2025-02-01 19:03:58.206 | INFO     | __main__:<module>:74 - Data file: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data\smoker_temps.csv
+2025-02-01 19:03:58.206 | INFO     | __main__:main:134 - START producer.
+2025-02-01 19:03:58.206 | INFO     | utils.utils_producer:get_zookeeper_address:57 - Zookeeper address: localhost:2181
+2025-02-01 19:03:58.210 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:79 - Zookeeper is ready at localhost:2181.
+2025-02-01 19:03:58.210 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:03:58.529 | INFO     | utils.utils_producer:check_kafka_service_is_ready:98 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'b_YEc9_mSjyM5tN5MA9yMQ', 'controller_id': 1001}
+2025-02-01 19:03:58.529 | INFO     | __main__:get_kafka_topic:48 - Kafka topic: smoker_csv
+2025-02-01 19:03:58.529 | INFO     | __main__:get_message_interval:55 - Message interval: 5 seconds
+2025-02-01 19:03:58.530 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:03:58.530 | INFO     | utils.utils_producer:create_kafka_producer:146 - Connecting to Kafka broker at localhost:9092...
+2025-02-01 19:03:58.633 | INFO     | utils.utils_producer:create_kafka_producer:151 - Kafka producer successfully created.
+2025-02-01 19:03:58.633 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:03:58.942 | INFO     | utils.utils_producer:create_kafka_topic:172 - Topic 'smoker_csv' already exists. Clearing it out...
+2025-02-01 19:03:58.942 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:03:59.274 | ERROR    | utils.utils_producer:clear_kafka_topic:235 - Error managing retention for topic 'smoker_csv': list indices must be integers or slices, not ConfigResource
+2025-02-01 19:03:59.274 | INFO     | __main__:main:157 - Kafka topic 'smoker_csv' is ready.
+2025-02-01 19:03:59.274 | INFO     | __main__:main:163 - Starting message production to topic 'smoker_csv'...
+2025-02-01 19:03:59.274 | INFO     | __main__:generate_messages:93 - Opening data file in read mode: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data\smoker_temps.csv
+2025-02-01 19:03:59.274 | INFO     | __main__:generate_messages:95 - Reading data from file: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data\smoker_temps.csv
+2025-02-01 19:03:59.276 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:03:59', 'temperature': 70.4}
+2025-02-01 19:04:04.276 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:04:04', 'temperature': 70.8}
+2025-02-01 19:04:08.978 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-01 19:04:08.980 | INFO     | __main__:main:186 - START consumer.
+2025-02-01 19:04:08.981 | INFO     | __main__:get_kafka_topic:47 - Kafka topic: smoker_csv
+2025-02-01 19:04:08.981 | INFO     | __main__:get_kafka_consumer_group_id:54 - Kafka consumer group id: smoker_group
+2025-02-01 19:04:08.981 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:04:08.981 | INFO     | __main__:main:192 - Consumer: Topic 'smoker_csv' and group 'smoker_group'...
+2025-02-01 19:04:08.981 | INFO     | __main__:main:193 - Rolling window size: 10
+2025-02-01 19:04:08.981 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:04:08.981 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='smoker_csv' and group ID='smoker_group'.
+2025-02-01 19:04:09.087 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-01 19:04:09.088 | INFO     | __main__:main:201 - Polling messages from topic 'smoker_csv'...
+2025-02-01 19:04:09.236 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '00:17:39', 'temperature': 70.4}
+2025-02-01 19:04:09.237 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "00:17:39", "temperature": 70.4}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.237 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '00:17:44', 'temperature': 70.8}
+2025-02-01 19:04:09.237 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "00:17:44", "temperature": 70.8}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.237 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '00:17:49', 'temperature': 71.2}
+2025-02-01 19:04:09.238 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "00:17:49", "temperature": 71.2}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.238 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '00:17:54', 'temperature': 71.6}
+2025-02-01 19:04:09.238 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "00:17:54", "temperature": 71.6}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.238 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '00:17:59', 'temperature': 72.0}
+2025-02-01 19:04:09.239 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "00:17:59", "temperature": 72.0}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.239 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:03:59', 'temperature': 70.4}
+2025-02-01 19:04:09.239 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "01:03:59", "temperature": 70.4}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.239 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:04:04', 'temperature': 70.8}
+2025-02-01 19:04:09.239 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "01:04:04", "temperature": 70.8}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:09.277 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:04:09', 'temperature': 71.2}
+2025-02-01 19:04:09.288 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:04:09', 'temperature': 71.2}
+2025-02-01 19:04:09.288 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "01:04:09", "temperature": 71.2}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:14.278 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:04:14', 'temperature': 71.6}
+2025-02-01 19:04:14.289 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:04:14', 'temperature': 71.6}
+2025-02-01 19:04:14.289 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "01:04:14", "temperature": 71.6}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:19.279 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:04:19', 'temperature': 72.0}
+2025-02-01 19:04:19.290 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:04:19', 'temperature': 72.0}
+2025-02-01 19:04:19.290 | ERROR    | __main__:process_message:170 - Error processing message '{"timestamp": "01:04:19", "temperature": 72.0}': cannot access local variable 'timestamp' where it is not associated with a value
+2025-02-01 19:04:23.539 | WARNING  | __main__:main:170 - Producer interrupted by user.
+2025-02-01 19:04:23.540 | INFO     | __main__:main:175 - Kafka producer closed.
+2025-02-01 19:04:23.540 | INFO     | __main__:main:177 - END producer.
+2025-02-01 19:04:25.093 | WARNING  | __main__:main:208 - Consumer interrupted by user.
+2025-02-01 19:04:25.097 | INFO     | __main__:main:213 - Kafka consumer for topic 'smoker_csv' closed.
+2025-02-01 19:07:59.116 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-01 19:07:59.117 | INFO     | __main__:<module>:66 - Project root: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller
+2025-02-01 19:07:59.117 | INFO     | __main__:<module>:70 - Data folder: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data
+2025-02-01 19:07:59.118 | INFO     | __main__:<module>:74 - Data file: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data\smoker_temps.csv
+2025-02-01 19:07:59.118 | INFO     | __main__:main:134 - START producer.
+2025-02-01 19:07:59.118 | INFO     | utils.utils_producer:get_zookeeper_address:57 - Zookeeper address: localhost:2181
+2025-02-01 19:07:59.122 | INFO     | utils.utils_producer:check_zookeeper_service_is_ready:79 - Zookeeper is ready at localhost:2181.
+2025-02-01 19:07:59.122 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:07:59.432 | INFO     | utils.utils_producer:check_kafka_service_is_ready:98 - Kafka is ready. Brokers: {'throttle_time_ms': 0, 'brokers': [{'node_id': 1001, 'host': 'localhost', 'port': 9092, 'rack': None}], 'cluster_id': 'b_YEc9_mSjyM5tN5MA9yMQ', 'controller_id': 1001}
+2025-02-01 19:07:59.432 | INFO     | __main__:get_kafka_topic:48 - Kafka topic: smoker_csv
+2025-02-01 19:07:59.433 | INFO     | __main__:get_message_interval:55 - Message interval: 5 seconds
+2025-02-01 19:07:59.433 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:07:59.433 | INFO     | utils.utils_producer:create_kafka_producer:146 - Connecting to Kafka broker at localhost:9092...
+2025-02-01 19:07:59.536 | INFO     | utils.utils_producer:create_kafka_producer:151 - Kafka producer successfully created.
+2025-02-01 19:07:59.537 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:07:59.846 | INFO     | utils.utils_producer:create_kafka_topic:172 - Topic 'smoker_csv' already exists. Clearing it out...
+2025-02-01 19:07:59.846 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:08:00.157 | ERROR    | utils.utils_producer:clear_kafka_topic:235 - Error managing retention for topic 'smoker_csv': list indices must be integers or slices, not ConfigResource
+2025-02-01 19:08:00.157 | INFO     | __main__:main:157 - Kafka topic 'smoker_csv' is ready.
+2025-02-01 19:08:00.157 | INFO     | __main__:main:163 - Starting message production to topic 'smoker_csv'...
+2025-02-01 19:08:00.157 | INFO     | __main__:generate_messages:93 - Opening data file in read mode: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data\smoker_temps.csv
+2025-02-01 19:08:00.159 | INFO     | __main__:generate_messages:95 - Reading data from file: C:\Users\scmil\Documents\Data_Analytics\Data_Streaming\buzzline-03-miller\data\smoker_temps.csv
+2025-02-01 19:08:00.160 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:00', 'temperature': 70.4}
+2025-02-01 19:08:01.897 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-02-01 19:08:01.899 | INFO     | __main__:main:186 - START consumer.
+2025-02-01 19:08:01.899 | INFO     | __main__:get_kafka_topic:47 - Kafka topic: smoker_csv
+2025-02-01 19:08:01.899 | INFO     | __main__:get_kafka_consumer_group_id:54 - Kafka consumer group id: smoker_group
+2025-02-01 19:08:01.899 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:01.899 | INFO     | __main__:main:192 - Consumer: Topic 'smoker_csv' and group 'smoker_group'...
+2025-02-01 19:08:01.899 | INFO     | __main__:main:193 - Rolling window size: 10
+2025-02-01 19:08:01.899 | INFO     | utils.utils_producer:get_kafka_broker_address:50 - Kafka broker address: localhost:9092
+2025-02-01 19:08:01.899 | INFO     | utils.utils_consumer:create_kafka_consumer:44 - Creating Kafka consumer. Topic='smoker_csv' and group ID='smoker_group'.
+2025-02-01 19:08:02.005 | INFO     | utils.utils_consumer:create_kafka_consumer:59 - Kafka consumer created successfully.
+2025-02-01 19:08:02.006 | INFO     | __main__:main:201 - Polling messages from topic 'smoker_csv'...
+2025-02-01 19:08:02.325 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:00', 'temperature': 70.4}
+2025-02-01 19:08:02.336 | INFO     | __main__:process_message:158 - Elapsed Time: 0.00 minutes
+2025-02-01 19:08:02.336 | INFO     | __main__:process_message:159 - Average Temperature Change: 0.00°F per minute
+2025-02-01 19:08:02.336 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:05.160 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:05', 'temperature': 70.8}
+2025-02-01 19:08:05.171 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:05', 'temperature': 70.8}
+2025-02-01 19:08:05.172 | INFO     | __main__:process_message:158 - Elapsed Time: 0.08 minutes
+2025-02-01 19:08:05.172 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:05.172 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:10.162 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:10', 'temperature': 71.2}
+2025-02-01 19:08:10.174 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:10', 'temperature': 71.2}
+2025-02-01 19:08:10.174 | INFO     | __main__:process_message:158 - Elapsed Time: 0.17 minutes
+2025-02-01 19:08:10.174 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:10.174 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:15.163 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:15', 'temperature': 71.6}
+2025-02-01 19:08:15.175 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:15', 'temperature': 71.6}
+2025-02-01 19:08:15.175 | INFO     | __main__:process_message:158 - Elapsed Time: 0.25 minutes
+2025-02-01 19:08:15.175 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:15.175 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:20.164 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:20', 'temperature': 72.0}
+2025-02-01 19:08:20.176 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:20', 'temperature': 72.0}
+2025-02-01 19:08:20.176 | INFO     | __main__:process_message:158 - Elapsed Time: 0.33 minutes
+2025-02-01 19:08:20.176 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:20.176 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:25.165 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:25', 'temperature': 72.4}
+2025-02-01 19:08:25.178 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:25', 'temperature': 72.4}
+2025-02-01 19:08:25.178 | INFO     | __main__:process_message:158 - Elapsed Time: 0.42 minutes
+2025-02-01 19:08:25.178 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:25.178 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:30.166 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:30', 'temperature': 72.8}
+2025-02-01 19:08:30.179 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:30', 'temperature': 72.8}
+2025-02-01 19:08:30.179 | INFO     | __main__:process_message:158 - Elapsed Time: 0.50 minutes
+2025-02-01 19:08:30.180 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:30.180 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:35.167 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:35', 'temperature': 73.2}
+2025-02-01 19:08:35.182 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:35', 'temperature': 73.2}
+2025-02-01 19:08:35.182 | INFO     | __main__:process_message:158 - Elapsed Time: 0.58 minutes
+2025-02-01 19:08:35.182 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:35.182 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:40.168 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:40', 'temperature': 73.6}
+2025-02-01 19:08:40.182 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:40', 'temperature': 73.6}
+2025-02-01 19:08:40.183 | INFO     | __main__:process_message:158 - Elapsed Time: 0.67 minutes
+2025-02-01 19:08:40.183 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:40.183 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:45.170 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:45', 'temperature': 74.0}
+2025-02-01 19:08:45.177 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:45', 'temperature': 74.0}
+2025-02-01 19:08:45.177 | INFO     | __main__:process_message:158 - Elapsed Time: 0.75 minutes
+2025-02-01 19:08:45.177 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.80°F per minute
+2025-02-01 19:08:45.178 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:45.178 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:08:50.171 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:50', 'temperature': 74.4}
+2025-02-01 19:08:50.174 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:50', 'temperature': 74.4}
+2025-02-01 19:08:50.175 | INFO     | __main__:process_message:158 - Elapsed Time: 0.83 minutes
+2025-02-01 19:08:50.175 | INFO     | __main__:process_message:159 - Average Temperature Change: 4.32°F per minute
+2025-02-01 19:08:50.175 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:50.175 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:08:55.172 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:08:55', 'temperature': 74.8}
+2025-02-01 19:08:55.175 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:08:55', 'temperature': 74.8}
+2025-02-01 19:08:55.175 | INFO     | __main__:process_message:158 - Elapsed Time: 0.92 minutes
+2025-02-01 19:08:55.175 | INFO     | __main__:process_message:159 - Average Temperature Change: 3.93°F per minute
+2025-02-01 19:08:55.176 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:08:55.176 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:00.173 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:00', 'temperature': 75.2}
+2025-02-01 19:09:00.176 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:00', 'temperature': 75.2}
+2025-02-01 19:09:00.177 | INFO     | __main__:process_message:158 - Elapsed Time: 1.00 minutes
+2025-02-01 19:09:00.177 | INFO     | __main__:process_message:159 - Average Temperature Change: 3.60°F per minute
+2025-02-01 19:09:00.177 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:00.177 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:05.175 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:05', 'temperature': 75.6}
+2025-02-01 19:09:05.178 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:05', 'temperature': 75.6}
+2025-02-01 19:09:05.178 | INFO     | __main__:process_message:158 - Elapsed Time: 1.08 minutes
+2025-02-01 19:09:05.178 | INFO     | __main__:process_message:159 - Average Temperature Change: 3.32°F per minute
+2025-02-01 19:09:05.179 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:05.179 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:10.176 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:10', 'temperature': 76.0}
+2025-02-01 19:09:10.179 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:10', 'temperature': 76.0}
+2025-02-01 19:09:10.179 | INFO     | __main__:process_message:158 - Elapsed Time: 1.17 minutes
+2025-02-01 19:09:10.179 | INFO     | __main__:process_message:159 - Average Temperature Change: 3.09°F per minute
+2025-02-01 19:09:10.180 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:10.180 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:15.177 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:15', 'temperature': 76.4}
+2025-02-01 19:09:15.181 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:15', 'temperature': 76.4}
+2025-02-01 19:09:15.181 | INFO     | __main__:process_message:158 - Elapsed Time: 1.25 minutes
+2025-02-01 19:09:15.181 | INFO     | __main__:process_message:159 - Average Temperature Change: 2.88°F per minute
+2025-02-01 19:09:15.181 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:15.181 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:20.178 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:20', 'temperature': 76.8}
+2025-02-01 19:09:20.183 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:20', 'temperature': 76.8}
+2025-02-01 19:09:20.183 | INFO     | __main__:process_message:158 - Elapsed Time: 1.33 minutes
+2025-02-01 19:09:20.183 | INFO     | __main__:process_message:159 - Average Temperature Change: 2.70°F per minute
+2025-02-01 19:09:20.183 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:20.183 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:25.180 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:25', 'temperature': 77.2}
+2025-02-01 19:09:25.184 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:25', 'temperature': 77.2}
+2025-02-01 19:09:25.184 | INFO     | __main__:process_message:158 - Elapsed Time: 1.42 minutes
+2025-02-01 19:09:25.184 | INFO     | __main__:process_message:159 - Average Temperature Change: 2.54°F per minute
+2025-02-01 19:09:25.185 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:25.185 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:30.180 | INFO     | __main__:main:167 - Sent message to topic 'smoker_csv': {'timestamp': '01:09:30', 'temperature': 77.6}
+2025-02-01 19:09:30.185 | INFO     | __main__:process_message:129 - Processed JSON message: {'timestamp': '01:09:30', 'temperature': 77.6}
+2025-02-01 19:09:30.185 | INFO     | __main__:process_message:158 - Elapsed Time: 1.50 minutes
+2025-02-01 19:09:30.185 | INFO     | __main__:process_message:159 - Average Temperature Change: 2.40°F per minute
+2025-02-01 19:09:30.186 | INFO     | __main__:get_rolling_window_size:68 - Rolling window size: 10
+2025-02-01 19:09:30.186 | INFO     | __main__:get_stall_threshold:61 - Max stall temperature range: 0.2 F
+2025-02-01 19:09:32.737 | WARNING  | __main__:main:170 - Producer interrupted by user.
+2025-02-01 19:09:32.738 | INFO     | __main__:main:175 - Kafka producer closed.
+2025-02-01 19:09:32.738 | INFO     | __main__:main:177 - END producer.
+2025-02-01 19:09:34.058 | WARNING  | __main__:main:208 - Consumer interrupted by user.
+2025-02-01 19:09:34.063 | INFO     | __main__:main:213 - Kafka consumer for topic 'smoker_csv' closed.
