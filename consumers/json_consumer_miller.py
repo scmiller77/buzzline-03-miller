@@ -97,6 +97,18 @@ def process_message(message: str) -> None:
             # Increment the count for the author
             author_counts[author] += 1
 
+            # Find the maximum and minimum message counts
+            max_count = max(author_counts.values())
+            min_count = min(author_counts.values())
+
+            # Collect authors with the maximum and minimum message counts
+            max_authors = [author for author, count in author_counts.items() if count == max_count]
+            min_authors = [author for author, count in author_counts.items() if count == min_count]
+
+            # Log the results
+            logger.info(f"Author(s) with the most messages ({max_count} messages): {', '.join(max_authors)}")
+            logger.info(f"Author(s) with the least messages ({min_count} messages): {', '.join(min_authors)}")
+                    
             # Log the updated counts
             logger.info(f"Updated author counts: {dict(author_counts)}")
         else:
